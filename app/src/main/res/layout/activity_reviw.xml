@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReviwActivity">
+
+
+    <ScrollView
+        android:id="@+id/scrollCurriculo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Nome -->
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:gravity="center"
+                android:text="Nome"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <!-- Contato -->
+            <TextView
+                android:id="@+id/tvContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:text="Telefone: (31) 98813-6258   |   Email: guilhermihenry@gmail.com"
+                android:textSize="14sp" />
+
+            <!-- Linha -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="12dp"
+                android:background="#000000" />
+
+            <!-- INFORMAÇÕES PESSOAIS -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="INFORMAÇÕES PESSOAIS"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvInfoPessoal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Data de Nascimento: 20/09/1999\nEstado Civil: Casado\nNaturalidade: Itabira-MG\nCarteira de motorista: B\nEndereço: Antonina Moreira, Itabira-MG"
+                android:textSize="14sp" />
+
+            <!-- Linha -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="12dp"
+                android:background="#000000" />
+
+            <!-- FORMAÇÃO -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="FORMAÇÃO"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvFormacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="• Ensino médio completo — 2017\n• Técnico em informática — Escola Estadual Dr Costa, Santa Maria de Itabira (Ago 2017 - Nov 2018)\n• Superior de Tecnologia em Análise e Desenvolvimento de Sistemas — Universidade Pitágoras Unopar Anhanguera, Itabira (Jul 2022 – Jun 2024)"
+                android:textSize="14sp" />
+
+            <!-- Linha -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="12dp"
+                android:background="#000000" />
+
+            <!-- CURSOS -->
+
+            <TextView
+                android:id="@+id/fixcr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="CURSOS"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvCursos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="• Santander 2024 - Backend com Java, DIO (Mai 2024 – Jul 2024)\n• HTML, Java, CSS, React, Javascript - Curso em Vídeo"
+                android:textSize="14sp" />
+
+            <!-- Linha -->
+            <View
+                android:id="@+id/fixcr1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="12dp"
+                android:background="#000000" />
+
+            <!-- EXPERIÊNCIA -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="EXPERIÊNCIA PROFISSIONAL"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvExperiencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:text="• Companhia Itabirana de Telecomunicações\n  Cargo: Auxiliar de Internet e Fibra Óptica\n  Período: Out 2021 – Jul 2025\n\n• Laticínios Santa Maria\n  Cargo: Auxiliar de Produção\n  Período: Nov 2020 - Out 2021"
+                android:textSize="14sp" />
+
+            <!-- Botão PDF -->
+            <Button
+                android:id="@+id/btnExportPdf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#006BC3"
+                android:text="Exportar para PDF" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

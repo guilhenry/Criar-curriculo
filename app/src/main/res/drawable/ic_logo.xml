@@ -1,0 +1,20 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Quadrado com borda azul -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#2E64FE"
+        android:strokeWidth="2"
+        android:pathData="M4,4h16v16h-16z"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round" />
+
+    <!-- Linhas do currículo -->
+    <path
+        android:fillColor="#2E64FE"
+        android:pathData="M8,9h8v1.5h-8zM8,12h8v1.5h-8zM8,15h5v1.5h-5z" />
+</vector>
