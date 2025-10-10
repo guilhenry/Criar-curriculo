@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Pessoal">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Informação Pessoal"
+        android:textColor="#1F1F1F"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +28,7 @@
         android:layout_marginTop="32dp"
         android:text="Nome Completo"
         android:textSize="16sp"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixInfo" />
 
@@ -38,6 +41,7 @@
         android:ems="10"
         android:hint="Nome"
         android:inputType="text"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixNome" />
 
@@ -48,35 +52,26 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="Data de Nascimento"
+        android:textColor="#1F1F1F"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editNome" />
 
-   <!-- <EditText
-        android:id="@+id/editNasci"
-        android:layout_width="128dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="dd/mm/aaaa"
-        android:inputType="date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fixdata" />-->
+
     <EditText
         android:id="@+id/editNasci"
         android:layout_width="128dp"
         android:layout_height="47dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="dd/mm/aaaa"
-        android:inputType="date"
-        android:focusable="false"
         android:clickable="true"
+        android:ems="10"
+        android:focusable="false"
+        android:hint="dd/mm/aaaa"
+        android:textColor="#1F1F1F"
+        android:inputType="date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixdata" />
-
 
 
     <TextView
@@ -86,6 +81,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="Naturalidade"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editNasci" />
 
@@ -97,6 +93,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="cidade onde nasceu"
+        android:textColor="#1F1F1F"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixNat" />
@@ -118,13 +115,14 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="Estado Civil"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editnat" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="240dp"
-        android:layout_height="241dp"
+        android:layout_width="247dp"
+        android:layout_height="251dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,31 +132,36 @@
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Solteiro" />
+            android:text="Solteiro"
+            android:textColor="#1F1F1F" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Casado(a)" />
+            android:text="Casado(a)"
+            android:textColor="#1F1F1F" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Separado Judicialmente" />
+            android:text="Separado Judicialmente"
+            android:textColor="#1F1F1F" />
 
         <RadioButton
             android:id="@+id/radioButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Divorciado(a)" />
+            android:text="Divorciado(a)"
+            android:textColor="#1F1F1F" />
 
         <RadioButton
             android:id="@+id/radioButton5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Viúvo(a)" />
+            android:text="Viúvo(a)"
+            android:textColor="#1F1F1F" />
 
     </RadioGroup>
 
@@ -166,9 +169,10 @@
         android:id="@+id/btprox1"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:backgroundTint="#2196F3"
+        android:backgroundTint="#006BC3"
         android:onClick="pagContato"
         android:text="Proximo"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

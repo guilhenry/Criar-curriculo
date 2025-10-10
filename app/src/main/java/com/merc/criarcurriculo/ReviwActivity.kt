@@ -1,20 +1,30 @@
 package com.merc.criarcurriculo
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.ContentValues
+import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.pdf.PdfDocument
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import android.widget.Button
 import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.content.FileProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.io.File
 import java.io.OutputStream
 
 
@@ -29,13 +39,12 @@ class ReviwActivity : AppCompatActivity() {
             insets
         }
         trocainfpess()
-       /* val scroll = findViewById<ScrollView>(R.id.scrollCurriculo)
+      val scroll = findViewById<ScrollView>(R.id.scrollCurriculo)
         val btnExport = findViewById<Button>(R.id.btnExportPdf)
 
         btnExport.setOnClickListener {
             exportToPdf(scroll, btnExport)
-        }*/
-
+        }
 
     }
     fun trocainfpess(){
@@ -69,88 +78,117 @@ class ReviwActivity : AppCompatActivity() {
 
 
 
-         private fun exportToPdf(scrollView: ScrollView, hiddenView: View) {
-             // Esconde o botão
-             hiddenView.visibility = View.GONE
+    private fun exportToPdf(scrollView: ScrollView, hiddenView: View) {
+        hiddenView.visibility = View.GONE
 
-             val content = scrollView.getChildAt(0)
+        val content = scrollView.getChildAt(0)
+        val widthSpec = View.MeasureSpec.makeMeasureSpec(scrollView.width, View.MeasureSpec.EXACTLY)
+        val heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+        content.measure(widthSpec, heightSpec)
+        content.layout(0, 0, content.measuredWidth, content.measuredHeight)
 
-             // Mede todo o conteúdo do ScrollView
-             val widthSpec = View.MeasureSpec.makeMeasureSpec(scrollView.width, View.MeasureSpec.EXACTLY)
-             val heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
-             content.measure(widthSpec, heightSpec)
-             content.layout(0, 0, content.measuredWidth, content.measuredHeight)
+        val totalWidth = content.measuredWidth
+        val totalHeight = content.measuredHeight
 
-             val totalWidth = content.measuredWidth
-             val totalHeight = content.measuredHeight
+        val fullBitmap = Bitmap.createBitmap(totalWidth, totalHeight, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(fullBitmap)
+        content.draw(canvas)
 
-             // Renderiza todo o conteúdo em um Bitmap
-             val fullBitmap = Bitmap.createBitmap(totalWidth, totalHeight, Bitmap.Config.ARGB_8888)
-             val canvas = Canvas(fullBitmap)
-             content.draw(canvas)
+        val pageWidth = 595
+        val pageHeight = 842
+        val margin = 40
+        val usableWidth = pageWidth - margin * 2
+        val usableHeight = pageHeight - margin * 2
 
-             // Tamanho de uma folha A4 (72 dpi → 595x842 px)
-             val pageWidth = 595
-             val pageHeight = 842
+        val document = PdfDocument()
+        val pageInfo = PdfDocument.PageInfo.Builder(pageWidth, pageHeight, 1).create()
+        val page = document.startPage(pageInfo)
+        val pdfCanvas = page.canvas
 
-             // Define margem em px (ajuste se quiser mais ou menos)
-             val margin = 40
-             val usableWidth = pageWidth - margin * 2
-             val usableHeight = pageHeight - margin * 2
+        val scaleX = usableWidth.toFloat() / totalWidth.toFloat()
+        val scaleY = usableHeight.toFloat() / totalHeight.toFloat()
+        val scale = minOf(scaleX, scaleY)
+        val offsetX = margin + (usableWidth - totalWidth * scale) / 2f
+        val offsetY = margin + (usableHeight - totalHeight * scale) / 2f
 
-             val document = PdfDocument()
-             val pageInfo = PdfDocument.PageInfo.Builder(pageWidth, pageHeight, 1).create()
-             val page = document.startPage(pageInfo)
-             val pdfCanvas = page.canvas
+        pdfCanvas.save()
+        pdfCanvas.translate(offsetX, offsetY)
+        pdfCanvas.scale(scale, scale)
+        pdfCanvas.drawBitmap(fullBitmap, 0f, 0f, null)
+        pdfCanvas.restore()
 
-             // Calcula escala proporcional para caber dentro da área útil
-             val scaleX = usableWidth.toFloat() / totalWidth.toFloat()
-             val scaleY = usableHeight.toFloat() / totalHeight.toFloat()
-             val scale = minOf(scaleX, scaleY)
+        document.finishPage(page)
+        fullBitmap.recycle()
 
-             // Aplica margens e centraliza
-             val offsetX = margin + (usableWidth - totalWidth * scale) / 2f
-             val offsetY = margin + (usableHeight - totalHeight * scale) / 2f
+        val filename = "curriculo_${System.currentTimeMillis()}.pdf"
+        var fileUri: Uri? = null
 
-             pdfCanvas.save()
-             pdfCanvas.translate(offsetX, offsetY)
-             pdfCanvas.scale(scale, scale)
-             pdfCanvas.drawBitmap(fullBitmap, 0f, 0f, null)
-             pdfCanvas.restore()
+        try {
+            val out: OutputStream? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                val contentValues = ContentValues().apply {
+                    put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
+                    put(MediaStore.MediaColumns.MIME_TYPE, "application/pdf")
+                    put(MediaStore.MediaColumns.RELATIVE_PATH, "Download/Curriculos")
+                }
+                fileUri = contentResolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, contentValues)
+                fileUri?.let { contentResolver.openOutputStream(it) }
+            } else {
+                val file = File(getExternalFilesDir(null), filename)
+                fileUri = FileProvider.getUriForFile(this, "${packageName}.provider", file)
+                openFileOutput(filename, MODE_PRIVATE)
+            }
 
-             document.finishPage(page)
-             fullBitmap.recycle()
+            out?.use {
+                document.writeTo(it)
+                Toast.makeText(this, "PDF salvo em Download/Curriculos", Toast.LENGTH_LONG).show()
 
-             val filename = "curriculo_${System.currentTimeMillis()}.pdf"
+                if (fileUri != null) {
+                    sendClickableNotification(filename, fileUri!!)
+                }
+            }
+        } catch (e: Exception) {
+            Toast.makeText(this, "Erro: ${e.message}", Toast.LENGTH_LONG).show()
+        } finally {
+            document.close()
+            hiddenView.visibility = View.VISIBLE
+        }
+    }
 
-             try {
-                 val out: OutputStream? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                     val contentValues = ContentValues().apply {
-                         put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
-                         put(MediaStore.MediaColumns.MIME_TYPE, "application/pdf")
-                         put(MediaStore.MediaColumns.RELATIVE_PATH, "Download/Curriculos")
-                     }
-                     val uri = contentResolver.insert(
-                         MediaStore.Downloads.EXTERNAL_CONTENT_URI,
-                         contentValues
-                     )
-                     uri?.let { contentResolver.openOutputStream(it) }
-                 } else {
-                     openFileOutput(filename, MODE_PRIVATE)
-                 }
+    private fun sendClickableNotification(filename: String, fileUri: Uri) {
+        val channelId = "pdf_export_channel"
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-                 out?.use {
-                     document.writeTo(it)
-                     Toast.makeText(this, "PDF salvo em Download/Curriculos", Toast.LENGTH_LONG).show()
-                 }
-             } catch (e: Exception) {
-                 Toast.makeText(this, "Erro: ${e.message}", Toast.LENGTH_LONG).show()
-             } finally {
-                 document.close()
-                 hiddenView.visibility = View.VISIBLE
-             }
-         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                channelId,
+                "Exportação de PDF",
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            notificationManager.createNotificationChannel(channel)
+        }
 
+        val intent = Intent(Intent.ACTION_VIEW).apply {
+            setDataAndType(fileUri, "application/pdf")
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+
+        val pendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val notification = NotificationCompat.Builder(this, channelId)
+            .setContentTitle("Download concluído")
+            .setContentText("Currículo salvo como $filename")
+            .setSmallIcon(android.R.drawable.stat_sys_download_done)
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
+            .build()
+
+        notificationManager.notify(System.currentTimeMillis().toInt(), notification)
+    }
 }
 
 

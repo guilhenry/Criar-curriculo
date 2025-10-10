@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".FormaActivity">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Curso"
+        android:textColor="#1F1F1F"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.445"
@@ -23,8 +25,9 @@
         android:id="@+id/fixinform"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Formação"
+        android:textColor="#1F1F1F"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +40,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="Grau de Escolaridade"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixinform" />
 
@@ -44,9 +48,11 @@
         android:id="@+id/fixfacul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="104dp"
         android:layout_marginTop="16dp"
         android:text="Ensino Superior (Se tiver)"
+        android:textColor="#1F1F1F"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerEnsi" />
 
@@ -55,9 +61,10 @@
         android:layout_width="267dp"
         android:layout_height="45dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="Curso"
+        android:textColor="#1F1F1F"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixfacul" />
@@ -69,6 +76,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="Data de inicio"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editEnsSup" />
 
@@ -80,6 +88,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="MM/AAAA"
+        android:textColor="#1F1F1F"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixanoin" />
@@ -91,6 +100,7 @@
         android:layout_marginStart="68dp"
         android:layout_marginTop="8dp"
         android:text="Data de termino"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toEndOf="@+id/fixanoin"
         app:layout_constraintTop_toBottomOf="@+id/editEnsSup" />
 
@@ -102,6 +112,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="MM/AAAA"
+        android:textColor="#1F1F1F"
         android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/editinisu"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -113,6 +124,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="Faculdade"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editinisu" />
 
@@ -125,6 +137,7 @@
         android:ems="10"
         android:hint="Nome da Faculdade"
         android:inputType="text"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixfacu" />
 
@@ -135,6 +148,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="Nome (se tiver)"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixinform2" />
 
@@ -146,6 +160,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Nome do Curso"
+        android:textColor="#1F1F1F"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixnomecur" />
@@ -154,12 +169,14 @@
         android:id="@+id/btprxexp"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="12dp"
         android:backgroundTint="#006BC3"
         android:onClick="exp"
         android:text="Proximo"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.612"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner

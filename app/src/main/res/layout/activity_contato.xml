@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ContatoActivity">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Contato e Endereço"
+        android:textColor="#1F1F1F"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +27,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:text=" Rua e Numero"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -37,6 +40,7 @@
         android:ems="10"
         android:hint="Rua"
         android:inputType="text"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixrua" />
 
@@ -47,6 +51,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="Bairro"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editRua" />
 
@@ -58,6 +63,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Bairro"
+        android:textColor="#1F1F1F"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixbairro" />
@@ -69,6 +75,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="Cidade"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editBairro" />
 
@@ -81,6 +88,7 @@
         android:ems="10"
         android:hint="Cidade"
         android:inputType="text"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixcidade" />
 
@@ -91,6 +99,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="Telefone"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCidade" />
 
@@ -102,6 +111,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Telefone"
+        android:textColor="#1F1F1F"
         android:inputType="phone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixtel" />
@@ -113,6 +123,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="Email"
+        android:textColor="#1F1F1F"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTelefone" />
 
@@ -124,6 +135,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="E-mail"
+        android:textColor="#1F1F1F"
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fixemail" />
@@ -136,6 +148,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="numero"
+        android:textColor="#1F1F1F"
         android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/editRua"
         app:layout_constraintTop_toBottomOf="@+id/fixrua" />
@@ -148,6 +161,7 @@
         android:backgroundTint="#006BC3"
         android:onClick="pagForm"
         android:text="Proximo"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

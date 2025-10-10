@@ -33,6 +33,7 @@
                 android:layout_marginBottom="6dp"
                 android:gravity="center"
                 android:text="Nome"
+                android:textColor="#1F1F1F"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -43,7 +44,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:gravity="center"
-                android:text="Telefone: (31) 98813-6258   |   Email: guilhermihenry@gmail.com"
+                android:text="Telefone:   |   Email: "
+                android:textColor="#1F1F1F"
                 android:textSize="14sp" />
 
             <!-- Linha -->
@@ -59,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="INFORMAÇÕES PESSOAIS"
+                android:textColor="#1F1F1F"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -67,7 +70,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="Data de Nascimento: 20/09/1999\nEstado Civil: Casado\nNaturalidade: Itabira-MG\nCarteira de motorista: B\nEndereço: Antonina Moreira, Itabira-MG"
+                android:text=" Seu Endereço aqui"
+                android:textColor="#1F1F1F"
                 android:textSize="14sp" />
 
             <!-- Linha -->
@@ -83,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="FORMAÇÃO"
+                android:textColor="#1F1F1F"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -91,7 +96,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="• Ensino médio completo — 2017\n• Técnico em informática — Escola Estadual Dr Costa, Santa Maria de Itabira (Ago 2017 - Nov 2018)\n• Superior de Tecnologia em Análise e Desenvolvimento de Sistemas — Universidade Pitágoras Unopar Anhanguera, Itabira (Jul 2022 – Jun 2024)"
+                android:text="Sua formação"
+                android:textColor="#1F1F1F"
                 android:textSize="14sp" />
 
             <!-- Linha -->
@@ -109,6 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="CURSOS"
+                android:textColor="#1F1F1F"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -117,7 +124,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="• Santander 2024 - Backend com Java, DIO (Mai 2024 – Jul 2024)\n• HTML, Java, CSS, React, Javascript - Curso em Vídeo"
+                android:text="Seus Cursos"
+                android:textColor="#1F1F1F"
                 android:textSize="14sp" />
 
             <!-- Linha -->
@@ -134,6 +142,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="EXPERIÊNCIA PROFISSIONAL"
+                android:textColor="#1F1F1F"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -142,7 +151,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-                android:text="• Companhia Itabirana de Telecomunicações\n  Cargo: Auxiliar de Internet e Fibra Óptica\n  Período: Out 2021 – Jul 2025\n\n• Laticínios Santa Maria\n  Cargo: Auxiliar de Produção\n  Período: Nov 2020 - Out 2021"
+                android:text="Suas experiencias aqui"
+                android:textColor="#1F1F1F"
                 android:textSize="14sp" />
 
             <!-- Botão PDF -->
@@ -151,7 +161,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#006BC3"
-                android:text="Exportar para PDF" />
+                android:text="Exportar para PDF"
+                android:textColor="@color/white" />
 
         </LinearLayout>
     </ScrollView>

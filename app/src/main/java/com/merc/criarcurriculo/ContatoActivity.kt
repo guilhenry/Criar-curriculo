@@ -2,7 +2,6 @@ package com.merc.criarcurriculo
 
 import android.content.Intent
 import android.os.Bundle
-import android.telephony.PhoneNumberFormattingTextWatcher
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.EditText
@@ -46,10 +45,14 @@ class ContatoActivity : AppCompatActivity() {
         val info = Pessoal.InfoPessoal
 
         val tel = findViewById<EditText>(R.id.editTelefone)
-        tel.addTextChangedListener(PhoneNumberFormattingTextWatcher("BR"))
+            .text?.toString()?.trim().orEmpty()
+            .replace("+55", "")
+            .trim()
+
+
         val mail = findViewById<EditText>(R.id.editEmail).text.toString()
 
-        info.cont = "Telefone: $tel\n    Email: $mail"
+        info.cont = "Telefone: ${if (tel.isNotEmpty()) tel else ""}\n    Email: $mail"
 
         val cidade = findViewById<EditText>(R.id.editCidade).text.toString()
 
