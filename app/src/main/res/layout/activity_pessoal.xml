@@ -132,7 +132,7 @@
             android:id="@+id/radioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Solteiro"
+            android:text="Solteiro(a)"
             android:textColor="#1F1F1F" />
 
         <RadioButton
@@ -147,7 +147,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Separado Judicialmente"
-            android:textColor="#1F1F1F" />
+            android:textColor="#1F1F1F"
+            />
 
         <RadioButton
             android:id="@+id/radioButton4"

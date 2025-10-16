@@ -27,6 +27,12 @@ class Pessoal : AppCompatActivity() {
         }
         escSigla()
         seleData()
+        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
+
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            val radioButton = findViewById<RadioButton>(checkedId)
+            InfoPessoal.resposta = radioButton.text.toString() }
+
 
 
     }
@@ -86,13 +92,6 @@ class Pessoal : AppCompatActivity() {
         val eddatanas = findViewById<EditText>(R.id.editNasci)
         val ednatu = findViewById<EditText>(R.id.editnat)
         val edsig = findViewById<Spinner>(R.id.spinnerEstados)
-        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
-
-        radioGroup.setOnCheckedChangeListener { _, checkedId ->
-            val radioButton = findViewById<RadioButton>(checkedId)
-            InfoPessoal.resposta = radioButton.text.toString()
-        }
-
 
         InfoPessoal.sig = edsig.selectedItem.toString()
         InfoPessoal.nome = ednome.text.toString()
